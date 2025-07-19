@@ -19,9 +19,6 @@
 # .ssh dir may contain private keys
 .ssh
 .terrascan
-# Terraform dot files
-infra/tf-app/.terraform
-infra/tf-backend/.terraform
 .terraformrc
 **/.terraform/*
 .terraform.d
