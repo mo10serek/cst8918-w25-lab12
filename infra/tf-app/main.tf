@@ -1,3 +1,4 @@
+# Configure the Terraform runtime requirements.
 terraform {
   required_version = ">= 1.1.0"
 
@@ -26,4 +27,3 @@ resource "azurerm_resource_group" "rg" {
   name     = "mo10serek-a12-rg"
   location = "westus3"
 }
-
