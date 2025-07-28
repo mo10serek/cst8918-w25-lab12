@@ -11,8 +11,8 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "mo10serek-githubactions-rg"
-    storage_account_name = "mo10serekgithubactions"
+    resource_group_name  = "${var.label_prefix}-githubactions-rg"
+    storage_account_name = "${var.label_prefix}githubactions"
     container_name       = "tfstate"
     key                  = "prod.app.tfstate"
     use_oidc             = true
@@ -27,6 +27,6 @@ provider "azurerm" {
 
 # Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "mo10serek-a12-rg"
-  location = "westus3"
+  name     = "${var.label_prefix}-a12-rg"
+  location = var.region
 }
