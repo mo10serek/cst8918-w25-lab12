@@ -4,9 +4,9 @@ terraform {
 
   required_providers {
     # Azure Resource Manager provider and version
-    cloudinit = {
-      source  = "hashicorp/cloudinit"
-      version = "2.3.3"
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0.2"
     }
   }
 
