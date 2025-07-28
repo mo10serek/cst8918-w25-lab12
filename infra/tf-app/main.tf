@@ -27,3 +27,27 @@ resource "azurerm_resource_group" "rg" {
   name     = "${var.label_prefix}-a12-rg"
   location = var.region
 }
+
+resource "azurerm_virtual_network" "vnet" {
+  name                = "${var.label_prefix}-vnet"
+  location            = var.region
+  resource_group_name = azurerm_resource_group.rg.name
+  address_space       = ["10.0.0.0/16"]
+}
+
+resource "azurerm_subnet" "subnet" {
+  name                 = "${var.label_prefix}-subnet"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+
+output "vnet_id" {
+  description = "The ID of the virtual network"
+  value       = azurerm_virtual_network.vnet.id
+}
+
+output "subnet_id" {
+  description = "The ID of the subnet"
+  value       = azurerm_subnet.subnet.id
+}
