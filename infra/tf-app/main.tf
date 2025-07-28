@@ -6,10 +6,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.64.0"
     }
-    cloudinit = {
-      source  = "hashicorp/cloudinit"
-      version = "2.3.3"
-    }
   }
 
   backend "azurerm" {
@@ -31,7 +27,3 @@ resource "azurerm_resource_group" "rg" {
   location = "westus3"
 }
 
-output "resource_group_name" {
-  description = "The name of the resource group created"
-  value       = azurerm_resource_group.rg.name
-}
