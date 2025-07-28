@@ -32,13 +32,13 @@ output "arm_access_key" {
 
 # Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "mo10serek-githubactions-rg"
-  location = "westus3"
+  name     = "${var.label_prefix}-githubactions-rg"
+  location = var.region
 }
 
 # Storage Account
 resource "azurerm_storage_account" "sa" {
-  name                     = "mo10serekgithubactions" # must be globally unique, 3-24 lowercase letters/numbers
+  name                     = "${var.label_prefix}githubactions" # must be globally unique, 3-24 lowercase letters/numbers
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
