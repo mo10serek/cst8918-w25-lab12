@@ -11,8 +11,8 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "${var.label_prefix}-githubactions-rg"
-    storage_account_name = "${var.label_prefix}githubactions"
+    resource_group_name  = "mo10serek-githubactions-rg"
+    storage_account_name = "mo10serekgithubactions"
     container_name       = "tfstate"
     key                  = "prod.app.tfstate"
     use_oidc             = true
